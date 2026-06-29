@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar__container">
+      <a href="#" class="navbar__logo">Portfolio</a>
+      <button class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="navbar__nav" role="navigation">
+        <ul class="navbar__links">
+          <li><a href="#hero" class="navbar__link" data-section="hero">Home</a></li>
+          <li><a href="#about" class="navbar__link" data-section="about">About</a></li>
+          <li><a href="#experience" class="navbar__link" data-section="experience">Work Experience</a></li>
+          <!-- <li><a href="#" class="navbar__link" data-section="projects">Projects</a></li> -->
+          <li><a href="#research" class="navbar__link" data-section="research">Research Papers</a></li>
+          <li><a href="#" class="navbar__link" data-section="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main>
+    <section id="hero" class="hero">
+      <canvas class="hero__canvas" aria-hidden="true"></canvas>
+
+      <div class="hero__container">
+        <p class="hero__greeting">Hello, I'm</p>
+        <h1 class="hero__name">Khushi <span class="hero__name--accent">Soni</span></h1>
+        <p class="hero__tagline">Full-Stack Developer crafting fast, scalable web experiences from pixel to production.
+        </p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--primary">Contact for Work</a>
+          <a href="#projects" class="btn btn--outline">View Portfolio</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="about__container">
+
+      <div class="about__content">
+        <!-- Photo -->
+        <div class="about__photo-wrap reveal">
+          <div class="about__photo">
+            <img src="assets/profile.jpg" alt="Khushi Soni" class="about__img"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="about__initials">KS</div>
+          </div>
+        </div>
+
+        <!-- Bio -->
+        <div class="about__text reveal reveal--right">
+          <span class="about__label">About Me</span>
+          <h2 class="about__heading">Turning ideas into <span class="about__heading--accent">digital reality</span></h2>
+          <p class="about__bio">
+            I'm a Full-Stack Developer with a passion for building clean, performant web
+            applications. I specialise in modern JavaScript ecosystems — React on the
+            front end, Node.js and Python on the back end — with a strong interest in
+            cloud architecture and developer tooling. When I'm not coding, I'm exploring
+            machine learning research and contributing to open-source projects.
+          </p>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="about__stats reveal reveal--up">
+        <div class="about__stat">
+          <p class="about__stat-number">
+            <span class="count" data-target="3">0</span><span class="about__stat-suffix">+</span>
+          </p>
+          <p class="about__stat-label">Years of Experience</p>
+        </div>
+        <div class="about__stat-divider"></div>
+        <div class="about__stat">
+          <p class="about__stat-number">
+            <span class="count" data-target="24">0</span><span class="about__stat-suffix">+</span>
+          </p>
+          <p class="about__stat-label">Projects Completed</p>
+        </div>
+        <div class="about__stat-divider"></div>
+        <div class="about__stat">
+          <p class="about__stat-number">
+            <span class="count" data-target="5">0</span>
+          </p>
+          <p class="about__stat-label">Research Papers Published</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Work Experience -->
+  <section id="experience" class="experience">
+    <div class="experience__bg" aria-hidden="true">
+      <div class="experience__orb experience__orb--1"></div>
+      <div class="experience__orb experience__orb--2"></div>
+      <div class="experience__orb experience__orb--3"></div>
+    </div>
+
+    <div class="experience__container">
+      <div class="experience__header reveal">
+        <span class="section-label">Career</span>
+        <h2 class="section-heading">Work <span class="section-heading--accent">Experience</span></h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline__line">
+          <div class="timeline__line-fill"></div>
+        </div>
+
+        <!-- Entry 1 — Left -->
+        <div class="timeline__entry timeline__entry--left reveal">
+          <article class="timeline__card">
+            <div class="timeline__dot"></div>
+            <div class="timeline__meta">
+              <span class="timeline__company">TechCorp Inc.</span>
+              <span class="timeline__period">Jan 2024 – Present</span>
+            </div>
+            <h3 class="timeline__role">Senior Frontend Developer</h3>
+            <ul class="timeline__duties">
+              <li>Led the migration of a legacy jQuery codebase to React 18, reducing load time by 42%.</li>
+              <li>Architected a shared component library used across 4 product teams.</li>
+              <li>Mentored 3 junior developers and drove bi-weekly code-review sessions.</li>
+            </ul>
+            <div class="timeline__tags">
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Figma</span>
+              <span class="tag">AWS</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Entry 2 — Right -->
+        <div class="timeline__entry timeline__entry--right reveal">
+          <article class="timeline__card">
+            <div class="timeline__dot"></div>
+            <div class="timeline__meta">
+              <span class="timeline__company">Innovate Solutions</span>
+              <span class="timeline__period">Jun 2022 – Dec 2023</span>
+            </div>
+            <h3 class="timeline__role">Full-Stack Developer</h3>
+            <ul class="timeline__duties">
+              <li>Built and deployed a SaaS analytics dashboard serving 10 000+ active users.</li>
+              <li>Designed RESTful APIs with Node.js and PostgreSQL, cutting query times by 60%.</li>
+              <li>Integrated Stripe payments and automated billing with webhook pipelines.</li>
+            </ul>
+            <div class="timeline__tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">Docker</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Entry 3 — Left -->
+        <div class="timeline__entry timeline__entry--left reveal">
+          <article class="timeline__card">
+            <div class="timeline__dot"></div>
+            <div class="timeline__meta">
+              <span class="timeline__company">StartupHub</span>
+              <span class="timeline__period">Aug 2021 – May 2022</span>
+            </div>
+            <h3 class="timeline__role">Junior Developer</h3>
+            <ul class="timeline__duties">
+              <li>Developed core features for a real-time collaboration tool using Socket.io.</li>
+              <li>Improved CI/CD pipeline with GitHub Actions, reducing deploy time by 35%.</li>
+              <li>Contributed to open-source tooling adopted by 200+ external developers.</li>
+            </ul>
+            <div class="timeline__tags">
+              <span class="tag">Python</span>
+              <span class="tag">Socket.io</span>
+              <span class="tag">GitHub Actions</span>
+            </div>
+          </article>
+        </div>
+
+      </div><!-- /.timeline -->
+    </div>
+  </section>
+
+  <!-- Research Papers -->
+  <section id="research" class="research">
+    <div class="research__container">
+
+      <div class="research__header reveal">
+        <span class="section-label">Publications</span>
+        <h2 class="section-heading">Research <span class="section-heading--accent">Papers</span></h2>
+        <p class="research__subtitle">Peer-reviewed work spanning machine learning, web systems, and human-computer
+          interaction.</p>
+      </div>
+
+      <div class="research__grid">
+
+        <!-- Paper 1 -->
+        <article class="paper-card reveal">
+          <div class="paper-card__top">
+            <div class="paper-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div class="paper-card__meta">
+              <span class="paper-card__venue">IEEE Transactions on Neural Networks</span>
+              <span class="paper-card__date">March 2025</span>
+            </div>
+          </div>
+          <h3 class="paper-card__title">Attention-Augmented Transformers for Low-Resource Text Classification</h3>
+          <p class="paper-card__authors">K. Soni, R. Mehta, A. Verma</p>
+          <p class="paper-card__desc">Proposes a novel attention augmentation strategy that improves transformer
+            performance on low-resource NLP tasks by 18% over the baseline with no additional training data.</p>
+          <div class="paper-card__footer">
+            <div class="paper-card__tags">
+              <span class="tag">NLP</span>
+              <span class="tag">Transformers</span>
+              <span class="tag">Deep Learning</span>
+            </div>
+            <a href="#" class="btn btn--outline btn--sm">View Paper</a>
+          </div>
+        </article>
+
+        <!-- Paper 2 -->
+        <article class="paper-card reveal">
+          <div class="paper-card__top">
+            <div class="paper-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div class="paper-card__meta">
+              <span class="paper-card__venue">ACM Web Conference (WWW)</span>
+              <span class="paper-card__date">April 2024</span>
+            </div>
+          </div>
+          <h3 class="paper-card__title">Scalable Edge Caching Strategies for Progressive Web Applications</h3>
+          <p class="paper-card__authors">K. Soni, D. Patel</p>
+          <p class="paper-card__desc">Introduces an adaptive edge-caching framework that reduces Time-to-Interactive for
+            PWAs by 53% under high-latency network conditions using predictive prefetching.</p>
+          <div class="paper-card__footer">
+            <div class="paper-card__tags">
+              <span class="tag">PWA</span>
+              <span class="tag">Edge Computing</span>
+              <span class="tag">Performance</span>
+            </div>
+            <a href="#" class="btn btn--outline btn--sm">View Paper</a>
+          </div>
+        </article>
+
+        <!-- Paper 3 -->
+        <article class="paper-card reveal">
+          <div class="paper-card__top">
+            <div class="paper-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div class="paper-card__meta">
+              <span class="paper-card__venue">CHI Conference on Human Factors</span>
+              <span class="paper-card__date">May 2023</span>
+            </div>
+          </div>
+          <h3 class="paper-card__title">Measuring Cognitive Load in Reactive UI Frameworks: A Comparative Study</h3>
+          <p class="paper-card__authors">K. Soni, N. Shah, P. Krishnan</p>
+          <p class="paper-card__desc">Empirically evaluates developer cognitive load across React, Vue, and Svelte using
+            eye-tracking and biometric data, offering design guidelines for ergonomic API surfaces.</p>
+          <div class="paper-card__footer">
+            <div class="paper-card__tags">
+              <span class="tag">HCI</span>
+              <span class="tag">UX Research</span>
+              <span class="tag">UI Frameworks</span>
+            </div>
+            <a href="#" class="btn btn--outline btn--sm">View Paper</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <p class="footer__copy">&copy; 2026 Portfolio. All rights reserved.</p>
+      <ul class="footer__links">
+        <li><a href="#" class="footer__link">GitHub</a></li>
+        <li><a href="#" class="footer__link">LinkedIn</a></li>
+        <li><a href="#" class="footer__link">Twitter</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
