@@ -59,15 +59,15 @@ window.addEventListener('scroll', () => {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
-  const ACCENT   = '108, 99, 255';
-  const WHITE    = '255, 255, 255';
-  const COUNT    = 72;
+  const ACCENT = '108, 99, 255';
+  const WHITE = '255, 255, 255';
+  const COUNT = 72;
   const MAX_DIST = 140;
 
   let W, H, particles;
 
   function resize() {
-    W = canvas.width  = canvas.offsetWidth;
+    W = canvas.width = canvas.offsetWidth;
     H = canvas.height = canvas.offsetHeight;
   }
 
@@ -75,11 +75,11 @@ window.addEventListener('scroll', () => {
 
   function createParticle() {
     return {
-      x:   rand(0, W),
-      y:   rand(0, H),
-      vx:  rand(-0.28, 0.28),
-      vy:  rand(-0.28, 0.28),
-      r:   rand(1, 2.2),
+      x: rand(0, W),
+      y: rand(0, H),
+      vx: rand(-0.28, 0.28),
+      vy: rand(-0.28, 0.28),
+      r: rand(1, 2.2),
       // alternate between accent and white dots
       color: Math.random() > 0.6 ? ACCENT : WHITE,
       alpha: rand(0.25, 0.7),
@@ -160,6 +160,73 @@ window.addEventListener('scroll', () => {
   }, { threshold: 0.15 });
 
   els.forEach(el => observer.observe(el));
+}());
+
+// ── Contact form → EmailJS ──
+(function () {
+  // ── Replace these four values with your own from emailjs.com ──
+  const PUBLIC_KEY = 'K6D7OTlBEWWya5Op8';
+  const SERVICE_ID = 'service_cxmcsad';
+  const NOTIFICATION_TEMPLATE = 'template_eqxujz7'; // email sent to you
+  const CONFIRMATION_TEMPLATE = 'template_de50dg7'; // email sent to visitor
+
+  emailjs.init(PUBLIC_KEY);
+
+  const form = document.querySelector('.contact__form');
+  if (!form) return;
+
+  const submitBtn = form.querySelector('.contact__submit');
+
+  function showToast(message, isError) {
+    const old = document.querySelector('.contact-toast');
+    if (old) old.remove();
+
+    const toast = document.createElement('div');
+    toast.className = 'contact-toast' + (isError ? ' contact-toast--error' : '');
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    toast.offsetHeight; // force reflow for transition
+    toast.classList.add('contact-toast--visible');
+
+    setTimeout(() => {
+      toast.classList.remove('contact-toast--visible');
+      setTimeout(() => toast.remove(), 400);
+    }, 5000);
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const name = form.querySelector('#contact-name').value.trim();
+    const email = form.querySelector('#contact-email').value.trim();
+    const message = form.querySelector('#contact-message').value.trim();
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      await emailjs.send(SERVICE_ID, NOTIFICATION_TEMPLATE, {
+        from_name: name,
+        from_email: email,
+        message: message,
+      });
+
+      await emailjs.send(SERVICE_ID, CONFIRMATION_TEMPLATE, {
+        to_name: name,
+        to_email: email,
+      });
+
+      form.reset();
+      showToast('Message sent! A confirmation has been emailed to you.');
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      showToast('Something went wrong. Please try again.', true);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
+  });
 }());
 
 // ── Count-up animation ──
